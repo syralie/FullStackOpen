@@ -1,3 +1,5 @@
+Here is the example given for reference:
+
 ```mermaid
 sequenceDiagram
     participant browser
