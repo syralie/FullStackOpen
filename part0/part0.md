@@ -109,7 +109,8 @@ sequenceDiagram
     participant browser
     participant server
 
-    Note right of browser: On form submission, the original JavaScript code (see Ex. 0.5) handles the submit event by creating a new node and adds it to     notes using the command notes.push(note). It also rerenders the notes with the command redrawNotes().
+    Note right of browser: On form submission, the original JavaScript code (see Ex. 0.5) handles the submit event by creating a new node and adds it to     notes using the command notes.push(note).
+    Note right of browser: It also rerenders the notes with the command redrawNotes().
 
     Note right of browser: The event handler furthermore sends the notes to the server, which is demonstrated below
     
