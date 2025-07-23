@@ -108,28 +108,14 @@ Exercise 0.6:
 sequenceDiagram
     participant browser
     participant server
+
+    Note right of browser: On form submission, the original JavaScript code (see Ex. 0.5) handles the submit event by creating a new node and adds it to     notes using the command notes.push(note). It also rerenders the notes with the command redrawNotes().
+
+    Note right of browser: The event handler furthermore sends the notes to the server, which is demonstrated below
     
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    browser->>server: POST [https://studies.cs.helsinki.fi/exampleapp/notes](https://studies.cs.helsinki.fi/exampleapp/new_note_spa)
     activate server
-    server-->>browser: HTML document
+    Note right of browser: The POST request payload is, in terms of format, {content: "single page app does not reload the whole page", date: "2025-07-23T16:15:41.434Z"}
+    server-->>browser: HTTP status code 201 Created
     deactivate server
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
-    activate server
-    server-->>browser: the css file
-    deactivate server
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
-    activate server
-    server-->>browser: the JavaScript file
-    deactivate server
-
-    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
-    activate server
-    server-->>browser: [{"content": "Inteligencia Artificial", "date": "2025-07-23T05:24:18.988Z"},…]
-    deactivate server
-
-    Note right of browser: The browser executes the callback function that renders the notes
 ```
